@@ -1,0 +1,25 @@
+// Paleta de colores global de la pagina
+$mapa-colores: (
+  "azul1" : #d6e8ee,
+  "azul2" : #97cadb,
+  "azul3" : #018abe,
+  "azul4" : #02457a,
+  "azul5" : #001b48
+);
+
+// Estilo botones global
+button {
+  background-color: map-get($mapa-colores, "azul4");
+  color: map-get($mapa-colores, "azul1");
+
+  &:hover {
+    background-color: map-get($mapa-colores, "azul2");
+    color: map-get($mapa-colores, "azul4");
+  }
+}
+
+h2 {
+  background-color: map-get($mapa-colores, "azul3");
+  margin-bottom: 0;
+  padding: 1% 0;
+}
