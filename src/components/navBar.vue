@@ -1,12 +1,12 @@
 <script setup>
-import { BIconMenuApp, BIconMenuButton, BIconMenuButtonWide, BIconMenuButtonWideFill } from 'bootstrap-icons-vue';
-import { ref } from 'vue';
+import { BIconMenuButtonWideFill } from "bootstrap-icons-vue";
+import { ref } from "vue";
 
 const pulsado = ref(false);
 
 const props = defineProps({
-  "links": Array
-})
+  links: Array,
+});
 </script>
 
 <template>
@@ -16,7 +16,12 @@ const props = defineProps({
     </button>
   </nav>
   <nav id="idOpciones" :class="{ desplegado: pulsado }">
-    <router-link v-for="section in props.links" :to="{ name: section }">{{ section }}</router-link>
+    <router-link
+      v-for="section in props.links"
+      :to="{ name: section }"
+      :key="section.id"
+      >{{ section }}</router-link
+    >
   </nav>
 </template>
 
@@ -28,12 +33,12 @@ const props = defineProps({
 }
 
 button {
-  background-color: map-get($mapa-colores , "azul4");
+  background-color: map-get($mapa-colores, "azul4");
   color: map-get($mapa-colores, "azul1");
   border: none;
 
   &:hover {
-    color: map-get($mapa-colores , "azul5");
+    color: map-get($mapa-colores, "azul5");
   }
 }
 
@@ -45,7 +50,7 @@ nav {
   margin: auto;
   display: flex;
   height: 80px;
-  background-color: map-get($mapa-colores , "azul4");
+  background-color: map-get($mapa-colores, "azul4");
   align-items: center;
   padding: 0 20px;
   font-size: 1.3rem;
@@ -64,7 +69,7 @@ nav {
 
     &:hover {
       background-color: map-get($mapa-colores, "azul2");
-      color: map-get($mapa-colores , "azul4");
+      color: map-get($mapa-colores, "azul4");
     }
   }
 }
@@ -80,11 +85,11 @@ nav {
     align-items: flex-start;
     justify-content: flex-start;
     height: 60px;
-    background-color: map-get($mapa-colores , "azul4");
+    background-color: map-get($mapa-colores, "azul4");
     font-size: 2.3rem;
 
     button:hover {
-      background-color: map-get($mapa-colores , "azul4");
+      background-color: map-get($mapa-colores, "azul4");
     }
   }
 

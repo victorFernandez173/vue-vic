@@ -1,36 +1,35 @@
 <script setup>
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 
 window.setTimeout(alerta, 3500);
 
 function alerta() {
   Swal.fire({
-    title: 'Sentimos las molestias',
-    text: 'Miles de años de evolución te han traido aquí pero solo la tecnología te sacará',
-    confirmButtonText: 'Vuelve a inicio',
+    title: "Sentimos las molestias",
+    text: "Miles de años de evolución te han traido aquí pero solo la tecnología te sacará",
+    confirmButtonText: "Vuelve a inicio",
     showDenyButton: true,
-    denyButtonText: 'No hacer nada',
-    imageUrl: 'src/img/bigTech.png',
+    denyButtonText: "No hacer nada",
+    imageUrl: "src/img/bigTech.png",
     imageWidth: 400,
-    imageAlt: 'web banner'
+    imageAlt: "web banner",
   }).then((result) => {
     if (result.isConfirmed) {
-      window.open('/', '_self');
+      window.open("/", "_self");
     }
-  })
+  });
 }
 
-document.addEventListener('click', voltear);
+document.addEventListener("click", voltear);
 
 let activada = false;
 
 function voltear() {
-
   if (activada == false) {
-    document.getElementById('idError404').className = "claseB";
+    document.getElementById("idError404").className = "claseB";
     activada = true;
   } else if (activada == true) {
-    document.getElementById('idError404').className = "claseA";
+    document.getElementById("idError404").className = "claseA";
     activada = false;
   }
 }
@@ -39,17 +38,22 @@ function voltear() {
 <template>
   <h1>UPS! PARECE QUE HA HABIDO UN PEQUEÑO CONTRATIEMPO :-(</h1>
   <div id="idImg">
-    <img src="@/img/evolucion.png" alt="involucionOEvolucion">
+    <img src="@/img/evolucion.png" alt="involucionOEvolucion" />
     <div class="imgTapa"></div>
   </div>
-  <img id="idError404" class="claseA" src="@/img/error404.png" onclick="voltear()" alt="error.png">
+  <img
+    id="idError404"
+    class="claseA"
+    src="@/img/error404.png"
+    onclick="voltear()"
+    alt="error.png"
+  />
 </template>
 
 <style lang="scss" scoped>
 body {
   background-color: rgb(240, 238, 245);
 }
-
 
 // MINI ANIMACIÓN
 
@@ -118,12 +122,15 @@ p {
   font-style: normal;
   font-weight: 400;
   src: url("@/fonts/mochiy-pop-p-one-v7-latin-regular.eot");
-  src: local(""), url("@/fonts/mochiy-pop-p-one-v7-latin-regular.woff2") format("woff2"), url("@/fonts/mochiy-pop-p-one-v7-latin-regular.woff") format("woff"), url("@/fonts/mochiy-pop-p-one-v7-latin-regular.ttf") format("truetype");
+  src: local(""),
+    url("@/fonts/mochiy-pop-p-one-v7-latin-regular.woff2") format("woff2"),
+    url("@/fonts/mochiy-pop-p-one-v7-latin-regular.woff") format("woff"),
+    url("@/fonts/mochiy-pop-p-one-v7-latin-regular.ttf") format("truetype");
 }
 
 // PROPIEDADES Y ANIMACION(s) PRINCIPAL DE LA PAGINA DE ERROR
 // declaro una variable sass que utilizo en la linea 40
-$anchura : 80vw;
+$anchura: 80vw;
 
 #idImg {
   position: absolute;
@@ -147,7 +154,6 @@ $anchura : 80vw;
   transform: translate(-50%, -50%) scale(2.3);
   animation: foto 3s;
   animation-fill-mode: forwards;
-
 }
 
 .imgTapa {

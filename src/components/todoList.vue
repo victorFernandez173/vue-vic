@@ -1,19 +1,27 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed } from "vue";
 
-const escondidas = ref(false)
-const contador = ref(0)
-const nueva = ref('')
-const listaTareas = ref([])
-const listaTareasProcesada = computed(() => { return escondidas.value ? listaTareas.value.filter(t => !t.marcado) : listaTareas.value })
+const escondidas = ref(false);
+const contador = ref(0);
+const nueva = ref("");
+const listaTareas = ref([]);
+const listaTareasProcesada = computed(() => {
+  return escondidas.value
+    ? listaTareas.value.filter((t) => !t.marcado)
+    : listaTareas.value;
+});
 
 function insertarTarea() {
-  listaTareas.value.push({ id: contador.value++, descripcion: nueva.value, marcado: false })
-  nueva.value = ''
+  listaTareas.value.push({
+    id: contador.value++,
+    descripcion: nueva.value,
+    marcado: false,
+  });
+  nueva.value = "";
 }
 
 function borrarTarea(t) {
-  listaTareas.value = listaTareas.value.filter(e => e !== t)
+  listaTareas.value = listaTareas.value.filter((e) => e !== t);
 }
 </script>
 
@@ -22,26 +30,32 @@ function borrarTarea(t) {
     <h3 class="pt-2 text-center">Lista reactiva de tareas</h3>
     <div class="row">
       <div class="col-md-6 text-center">
-
         <form class="col-8 col-md-10 mx-auto" @submit.prevent="insertarTarea">
           <div class="input-group mb-3 mt-3">
-            <input v-model="nueva" type="text" class="form-control" placeholder="Nueva tarea:">
-            <button class="btn btn-outline-secondary">Borrar</button>
+            <input
+              v-model="nueva"
+              type="text"
+              class="form-control"
+              placeholder="Nueva tarea:"
+            />
+            <button class="btn btn-outline-secondary">Añadir</button>
           </div>
         </form>
       </div>
       <div class="mt-4 col-md-6 text-center">
         <ul>
-          <li v-for='tarea in listaTareasProcesada' :key='tarea.id' :class='{ tachado: tarea.marcado }'>
-            <input type='checkbox' v-model='tarea.marcado'>
-            {{
-              tarea.descripcion
-            }}
-            <button class="btn" @click='borrarTarea(tarea)'>X</button>
+          <li
+            v-for="tarea in listaTareasProcesada"
+            :key="tarea.id"
+            :class="{ tachado: tarea.marcado }"
+          >
+            <input type="checkbox" v-model="tarea.marcado" />
+            {{ tarea.descripcion }}
+            <button class="btn" @click="borrarTarea(tarea)">X</button>
           </li>
         </ul>
-        <button class="btn" @click='escondidas = !escondidas'>
-          {{ escondidas ? 'Mostrar todo' : 'Esconder completadas' }}
+        <button class="btn" @click="escondidas = !escondidas">
+          {{ escondidas ? "Mostrar todo" : "Esconder completadas" }}
         </button>
       </div>
     </div>
@@ -67,8 +81,8 @@ h3 {
   margin-bottom: 20px;
 }
 
-input[type=text] {
-  color: map-get($mapa-colores, "azul5")
+input[type="text"] {
+  color: map-get($mapa-colores, "azul5");
 }
 
 ul {

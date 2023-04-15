@@ -1,4 +1,4 @@
-import https from './http-pokemon';
+import https from "./http-pokemon";
 
 class servicioDatosPokemon {
   getAll() {
@@ -6,7 +6,7 @@ class servicioDatosPokemon {
   }
 
   getNumberOfPokes(num) {
-    return https.get(`/pokemon?limit=${num}`)
+    return https.get(`/pokemon?limit=${num}`);
   }
 
   getName(name) {
