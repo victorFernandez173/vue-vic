@@ -1,6 +1,8 @@
 # vue-vic
 
-This template should help get you started developing with Vue 3 in Vite.
+Personal project consisting of a website powered by vue and different libraries/functionalities(check home page explanation).
+
+Test with `npm run dev`
 
 ## Recommended IDE Setup
 
