@@ -6,9 +6,12 @@ Test with `npm run dev`
 
 ## Check it out: 
 
-<video class="col-10 col-lg-8" controls>
-  <source src="../vid/Screencast.webm" />
-</video>
+<img src="img1.png" />
+<img src="img2.png" />
+<img src="img3.png" />
+<img src="img4.png" />
+<img src="img5.png" />
+<img src="img6.png" />
 
 ## Recommended IDE Setup
 
